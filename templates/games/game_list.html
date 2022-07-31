@@ -1,0 +1,22 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}Games List{% endblock title %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/game_list.css' %}">
+{% endblock style %}
+
+{% block content %}
+
+<a href="{% url 'game_create' %}">+ New Game</a>
+<ul class="items">
+  {% for game in object_list %}
+  <li>
+    <a href="{% url 'game_detail' game.pk %}">{{ game.name }}</a>
+  </li>
+  {% endfor %}
+</ul>
+
+
+{% endblock content %}
